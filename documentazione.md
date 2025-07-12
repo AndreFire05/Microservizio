@@ -2,6 +2,6 @@
 
 ## 1. Creazione del microservizio in .net 
 
-1. per prima cosa andiamo a creare il progetto
+per prima cosa andiamo a creare il progetto
 
 ![Creazione del progetto](img/creazione_progetto.jpg)
