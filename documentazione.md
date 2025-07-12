@@ -4,4 +4,4 @@
 
 1. per prima cosa andiamo a creare il progetto
 
-![Creazione del progetto](img/ creazione_progetto.jpg)
+![Creazione del progetto](img/creazione_progetto.jpg)
