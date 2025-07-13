@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: microservizio-crud
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: microservizio-crud
+  template:
+    metadata:
+      labels:
+        app: microservizio-crud
+    spec:
+      containers:
+        - name: microservizio-crud
+          image: andrefire/microservizio-crud:1.0
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DB_HOST
+              value: "host.docker.internal"
+            - name: DB_PORT
+              value: "1433"
+            - name: DB_NAME
+              value: "Istat"
+            - name: DB_USER
+              value: "sa"
+            - name: DB_PASSWORD
+              value: "Its-2025"
+            - name: ConnectionStrings__IstatConnection
+              value: "Server=host.docker.internal,1433;Database=Istat;User Id=sa;Password=Its-2025;TrustServerCertificate=true;Encrypt=False;"
+            - name: ASPNETCORE_URLS
+              value: "http://+:8080"

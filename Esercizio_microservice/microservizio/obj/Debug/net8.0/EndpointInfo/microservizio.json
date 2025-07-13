@@ -1,0 +1,387 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "microservizio",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/comuni": {
+      "get": {
+        "tags": [
+          "comuni"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Comune"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Comune"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Comune"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "comuni"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Comune"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Comune"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Comune"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Comune"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Comune"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Comune"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/comuni/{id}": {
+      "get": {
+        "tags": [
+          "comuni"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Comune"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Comune"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Comune"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "comuni"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Comune"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Comune"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Comune"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "comuni"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Comune": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idProvincia": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "denominazione": {
+            "type": "string",
+            "nullable": true
+          },
+          "codiceCatastale": {
+            "type": "string",
+            "nullable": true
+          },
+          "comuneCapoluogo": {
+            "type": "boolean"
+          },
+          "altitudineCentro": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "zonaLitoranea": {
+            "type": "boolean"
+          },
+          "idZonaAltimetrica": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idZonaMontana": {
+            "type": "string",
+            "nullable": true
+          },
+          "superficie": {
+            "type": "number",
+            "format": "double"
+          },
+          "popolazione2001": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "popolazione2011": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idProvinciaNavigation": {
+            "$ref": "#/components/schemas/Provincium"
+          },
+          "idZonaAltimetricaNavigation": {
+            "$ref": "#/components/schemas/ZonaAltimetrica"
+          },
+          "idZonaMontanaNavigation": {
+            "$ref": "#/components/schemas/ZonaMontana"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Provincium": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "denominazione": {
+            "type": "string",
+            "nullable": true
+          },
+          "sigla": {
+            "type": "string",
+            "nullable": true
+          },
+          "codiceCittaMetropolitana": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "idRegione": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "comunes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Comune"
+            },
+            "nullable": true
+          },
+          "idRegioneNavigation": {
+            "$ref": "#/components/schemas/Regione"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Regione": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "denominazione": {
+            "type": "string",
+            "nullable": true
+          },
+          "idRipartizione": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idRipartizioneNavigation": {
+            "$ref": "#/components/schemas/RipartizioneGeografica"
+          },
+          "provincia": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Provincium"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RipartizioneGeografica": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "denominazione": {
+            "type": "string",
+            "nullable": true
+          },
+          "regiones": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Regione"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ZonaAltimetrica": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "denominazione": {
+            "type": "string",
+            "nullable": true
+          },
+          "comunes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Comune"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ZonaMontana": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "denominazione": {
+            "type": "string",
+            "nullable": true
+          },
+          "comunes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Comune"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
